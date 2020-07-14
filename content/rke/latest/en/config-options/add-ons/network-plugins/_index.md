@@ -67,6 +67,25 @@ The `flannel_backend_type` option allows you to specify the type of [flannel bac
 
 ## Calico Network Plug-in Options
 
+In order to install latest calico from upstream make sure you perform the below steps by setting the network plugin to `none` and adding the required manifests in User-Defined Add-Ons section in `cluster.yml`. Below are the steps to be followed
+
+Step 1 - Disable deployment of a Network Plug-in
+
+```yaml
+network:
+    plugin: none
+```
+
+Step 2 - Adding the manifests to install latest calico in User-Defined Add-Ons section
+
+```yaml
+addons_include:
+        - https://docs.projectcalico.org/manifests/tigera-operator.yaml
+        - https://docs.projectcalico.org/manifests/custom-resources.yaml
+```
+
+In order to install the default Calico v3.13 that comes with rke, use the below configuration.
+
 ```yaml
 network:
     plugin: calico
@@ -75,12 +94,13 @@ network:
 ```
 #### Calico Cloud Provider
 
-Calico currently only supports 2 cloud providers, AWS or GCE, which can be set using `calico_cloud_provider`.
+Calico supports major public cloud providers like AWS, GCE and Azure which can be set using `calico_cloud_provider`
 
 **Valid Options**
 
 - `aws`
 - `gce`
+- `azure`
 
 ## Weave Network Plug-in Options
 
