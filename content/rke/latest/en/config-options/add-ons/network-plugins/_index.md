@@ -76,12 +76,12 @@ network:
     plugin: none
 ```
 
-Step 2 - Adding the manifests to install latest calico in User-Defined Add-Ons section
+Step 2 - Download the `custom-resources` manifest present at [https://docs.projectcalico.org/manifests/custom-resources.yaml], change the `cidr` parameter in the manifest to point to actual `ClusterCIDR`. Add the below mentioned addon block in `cluster.yml`, make sure to update the path of `custom-resources.yaml`   
 
 ```yaml
 addons_include:
         - https://docs.projectcalico.org/manifests/tigera-operator.yaml
-        - https://docs.projectcalico.org/manifests/custom-resources.yaml
+        - /path/to/custom-resources.yaml
 ```
 
 In order to install the default Calico v3.13 that comes with rke, use the below configuration.
