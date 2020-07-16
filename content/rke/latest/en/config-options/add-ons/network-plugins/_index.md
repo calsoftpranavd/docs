@@ -94,13 +94,12 @@ network:
 ```
 #### Calico Cloud Provider
 
-Calico supports major public cloud providers like AWS, GCE and Azure which can be set using `calico_cloud_provider`
+Calico currently only supports 2 cloud providers, AWS or GCE, which can be set using `calico_cloud_provider`.
 
 **Valid Options**
 
 - `aws`
 - `gce`
-- `azure`
 
 ## Weave Network Plug-in Options
 
