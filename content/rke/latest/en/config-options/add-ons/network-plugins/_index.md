@@ -67,7 +67,7 @@ The `flannel_backend_type` option allows you to specify the type of [flannel bac
 
 ## Calico Network Plug-in Options
 
-In order to install latest calico from upstream make sure you perform the below steps by setting the network plugin to `none` and adding the required manifests in User-Defined Add-Ons section in `cluster.yml`. Below are the steps to be followed
+In order to install `latest calico` from upstream make sure you perform the below steps by setting the network plugin to `none` and adding the required manifests in User-Defined Add-Ons section in `cluster.yml`. Below are the steps to be followed
 
 Step 1 - Disable deployment of a Network Plug-in
 
@@ -84,13 +84,13 @@ addons_include:
         - /path/to/custom-resources.yaml
 ```
 
-In order to install the default Calico v3.13 that comes with rke, use the below configuration.
+If you want to opt out from the above 2 steps and install the default `calico v3.13` that comes with `rke`, use the following configurations 
 
 ```yaml
 network:
-    plugin: calico
-    options:
-        calico_cloud_provider: aws
+  plugin: calico
+  calico_network_provider:
+    cloud_provider: aws
 ```
 #### Calico Cloud Provider
 
